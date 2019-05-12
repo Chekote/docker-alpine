@@ -32,3 +32,7 @@ RUN set -eux; \
     # verify that the binary works
 	gosu --version; \
 	gosu nobody true
+
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
