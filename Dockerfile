@@ -1,5 +1,5 @@
 # chekote/alpine
-FROM alpine:3.9.4
+FROM alpine:3.10.1
 
 ENV GOSU_VERSION 1.11
 
