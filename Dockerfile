@@ -33,6 +33,8 @@ RUN set -eux; \
 	gosu --version; \
 	gosu nobody true
 
+WORKDIR /workdir
+
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
