@@ -5,6 +5,8 @@ ENV GOSU_VERSION 1.11
 
 # install gosu
 RUN set -eux; \
+    \
+    apk update; \
 	\
 	apk add --no-cache --virtual .gosu-deps \
 		dpkg \

@@ -3,7 +3,7 @@ on:
   push:
     branches:
       # build whenever master is updated
-      - master
+      - '*'
     paths-ignore:
       - LICENSE
       - README.md
@@ -15,6 +15,11 @@ jobs:
     name: build
     runs-on: ubuntu-18.04
     steps:
-      - name: Build chekote/alpine:lates
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build chekote/alpine:latest
         run: docker image build -t chekote/alpine .
 
+      - name: Calculate Alpine packages SHA
+        run: docker run --rm chekote/alpine sh -c "apk list | grep installed && gosu --version" | shasum -a 256
