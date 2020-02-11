@@ -1,0 +1,25 @@
+name: build
+on:
+  push:
+    branches:
+      # build whenever master is updated
+      - '*'
+    paths-ignore:
+      - LICENSE
+      - README.md
+  schedule:
+    # also build nightly
+    - cron: '0 0 * * *'
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build chekote/alpine:latest
+        run: docker image build -t chekote/alpine .
+
+      - name: Calculate Alpine packages SHA
+        run: docker run --rm chekote/alpine sh -c "apk list | grep installed && gosu --version" | shasum -a 256
