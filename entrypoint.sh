@@ -27,4 +27,4 @@ if [ "$USER_NAME" == "" ]; then
 fi
 
 # Execute the command
-gosu ${USER_NAME} "$@"
+su-exec ${USER_NAME} "$@"
