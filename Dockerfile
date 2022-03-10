@@ -4,6 +4,9 @@ FROM alpine:latest
 
 # install su-exec
 RUN set -eux; \
+    #
+    apk update; \
+    apk upgrade; \
 	#
 	apk add su-exec; \
 	#
