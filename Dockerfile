@@ -1,5 +1,4 @@
 # chekote/alpine:latest
-# us.gcr.io/chekote-56995/alpine:latest
 FROM alpine:latest
 
 # install su-exec
