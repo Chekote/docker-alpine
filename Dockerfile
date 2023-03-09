@@ -4,9 +4,11 @@ FROM alpine:latest
 # install su-exec
 RUN set -eux; \
     #
+    # Update all packages
     apk update; \
     apk upgrade; \
 	#
+	# Install entrypoint dependencies
 	apk add su-exec; \
 	#
     # verify that the binary works
