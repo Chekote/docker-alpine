@@ -1,4 +1,6 @@
 # chekote/alpine:latest
+# chekote/alpine:$OS_VERSION
+# chekote/alpine:$OS_VERSION-$(date +%Y-%m-%d-%H-%M-%S)
 FROM alpine:latest
 
 # install su-exec
