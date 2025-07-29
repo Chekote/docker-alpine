@@ -10,11 +10,15 @@ RUN set -eux; \
     apk update; \
     apk upgrade; \
 	#
-	# Install entrypoint dependencies
-	apk add su-exec; \
-    #
-    # Install useful common tools
-    apk add coreutils; \
+	# Install dependencies
+	apk add \
+      #
+      # Install entrypoint dependencies
+      su-exec \
+      #
+      # Install useful common tools
+      coreutils \
+      ; \
 	#
     # verify that the binary works
 	su-exec nobody true;
