@@ -11,7 +11,7 @@ RUN set -eux; \
     apk upgrade; \
 	#
 	# Install dependencies
-	apk add \
+	apk add --no-cache \
       #
       # Install entrypoint dependencies
       su-exec \
@@ -19,6 +19,9 @@ RUN set -eux; \
       # Install useful common tools
       coreutils \
       ; \
+    #
+    # Cleanup
+    rm -rf /var/cache/apk/*; \
 	#
     # verify that the binary works
 	su-exec nobody true;
